@@ -11,14 +11,18 @@ import css from "./App.module.css";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 
-const NotesClient = () => {
+interface NotesClientProps {
+  tag: string | null;
+}
+
+const NotesClient = ({ tag }: NotesClientProps) => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data, isSuccess, error } = useQuery({
-    queryKey: ["notes", query, page],
-    queryFn: () => fetchNotes(query, page),
+    queryKey: ["notes", query, page, tag],
+    queryFn: () => fetchNotes(query, page, tag),
     placeholderData: keepPreviousData,
     refetchOnMount: false,
   });

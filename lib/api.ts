@@ -16,13 +16,15 @@ interface FetchNotesProps {
 
 export const fetchNotes = async (
   search: string,
-  page: number
+  page: number,
+  tag?: string | null
 ): Promise<FetchNotesProps> => {
   const params = {
     params: {
       page,
       search,
       perPage: 12,
+      tag,
     },
   };
 
