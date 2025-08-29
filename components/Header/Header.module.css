@@ -40,3 +40,7 @@
 .navigationLink:hover {
   color: #ddd;
 }
+
+.home {
+  align-self: center;
+}

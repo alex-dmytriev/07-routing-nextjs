@@ -10,7 +10,7 @@ const Header = () => {
       </Link>
       <nav aria-label="Main Navigation">
         <ul className={css.navigation}>
-          <li>
+          <li className={css.home}>
             <Link href="/">Home</Link>
           </li>
           <li>
