@@ -13,7 +13,11 @@ const NotePreview = () => {
   };
 
   const { id } = useParams<{ id: string }>();
-  const { data: note, isLoading } = useQuery({
+  const {
+    data: note,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["note", id],
     queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
@@ -44,6 +48,7 @@ const NotePreview = () => {
         </div>
       )}
       {isLoading && <p>Loading...</p>}
+      {error && <p>Something weng wrong... Try again later.</p>}
     </Modal>
   );
 };
